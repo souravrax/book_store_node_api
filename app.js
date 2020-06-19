@@ -2,7 +2,7 @@ const express = require('express');
 const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
-require('dotenv');
+require('dotenv').config();
 
 const authHandler = require('./routes/authHandler');
 const booksHandler = require('./routes/booksHandler');
@@ -18,7 +18,7 @@ app.use(cookieParser());
 app.use('/api/auth', authHandler);
 app.use('/api/books', booksHandler);
 
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT;
 
 app.listen(PORT, ()=>{
   console.log("Server running on port " + PORT);
